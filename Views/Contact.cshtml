@@ -10,6 +10,7 @@
 	ViewData["PageKeyWords"] = @Model.Value("pageKeyWords");
 
     var contactForm = new ContactForm();
+
 }
 
 @await Html.PartialAsync("_ContactInformation")
@@ -23,7 +24,7 @@
             <div asp-validation-summary="All"></div>
             <div class="name form-group">
                 <label for="name"></label>
-                <input asp-for="@contactForm.Name" id="name" type="text" class="invalid" placeholder="Name" required>
+                <input asp-for="@contactForm.Name" id="name" type="text" class="invalid" placeholder="Name" required minlength="2">
             </div>
             <div class="email form-group">
                 <label for="email"></label>
@@ -31,7 +32,7 @@
             </div>
             <div class="message form-group">
                 <label for="message"></label>
-                <textarea asp-for="@contactForm.Message" id="message" class="invalid" placeholder="Your Message"></textarea>
+                <textarea asp-for="@contactForm.Message" id="message" class="invalid" placeholder="Your Message" required minlength="5"></textarea>
             </div>
             <button type="submit" class="btn-theme">Send Message <i class="fa-regular fa-arrow-up-right"></i></button>
         }

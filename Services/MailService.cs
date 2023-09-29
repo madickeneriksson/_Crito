@@ -1,4 +1,7 @@
-﻿using MailKit.Net.Smtp;
+﻿using Crito.Context;
+using Crito.Models;
+using Crito.Models.Entity;
+using MailKit.Net.Smtp;
 using MailKit.Security;
 using MimeKit;
 using MimeKit.Text;
@@ -6,8 +9,11 @@ using System.Diagnostics;
 
 namespace Crito.Services
 {
+
+
     public class MailService : IDisposable
     {
+
         private string _from;
         private string _smtp;
         private int _port;
@@ -24,6 +30,7 @@ namespace Crito.Services
             _password = password;
             _client = new SmtpClient();
         }
+
 
         public async Task SendAsync(string to, string subject, string body)
         {

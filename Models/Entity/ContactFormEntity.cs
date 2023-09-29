@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Crito.Models
+namespace Crito.Models.Entity
 {
-    public class ContactForm
+    public class ContactFormEntity
     {
         [Required]
         public string Name { get; set; } = null!;
@@ -12,6 +12,5 @@ namespace Crito.Models
         [Key]
         public string Email { get; set; } = null!;
         public string Message { get; set; } = null!;
-        public string? ReadirectUrl { get; set; } = "/contact";
     }
 }
