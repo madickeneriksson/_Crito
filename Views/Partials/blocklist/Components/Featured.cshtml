@@ -1,0 +1,12 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.Featured)Model.Content;
+}
+
+                <div class="content-group">
+                    <i class="@content.Value("featuredBlockIcon")"></i>
+                    <div class="title">@content.Value("featuredBlockTitle")</div>
+                    <div class="text">@content.Value("featuredBlockText")</div>
+                </div>
+                

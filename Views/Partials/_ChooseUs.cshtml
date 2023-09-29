@@ -1,0 +1,27 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+<section class="choose">
+    <div class="container">
+        <div class="left">
+        <div class="red">@Model.Value("choseUsHeading")</div>
+        <div class="title">@Model.Value("choseUsTitle")</div>
+        <div class="content-group">
+             @Html.GetBlockListHtml(Model.ChoseUs)
+
+    </div>
+    </div>
+    <div class="right">
+                @{
+    var choseUsImage = Model.Value<MediaWithCrops>("choseUsImage");
+    if (choseUsImage != null)
+    {
+            <img src="@choseUsImage.MediaUrl()" alt="" />
+    }
+        }
+    </div>
+</div>
+<div class="color-box"></div>
+</section>

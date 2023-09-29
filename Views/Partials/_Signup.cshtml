@@ -1,0 +1,12 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+<section class="signup">
+    <div class="container">
+        <div class="text">@Model.Value("signupTitle")</div>
+        <form>
+            <input type="text" placeholder="@Model.Value("signupFormText")">
+            <a class="btn-theme" href="@Model.Value("signupButtonUrl")">@Model.Value("signupButtonText") <i class="fa-regular fa-arrow-up-right"></i></a>
+        </form>
+    </div>
+    <img src="/images/signup-element.svg" alt="">
+</section>

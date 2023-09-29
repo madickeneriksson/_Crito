@@ -1,0 +1,32 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models
+@{
+    var content = (ContentModels.Reviews)Model.Content;
+}
+
+
+<div class="reviews">
+    <div class="stars">
+        @{
+            for (var i = 1; i <= 5; i++)
+            {
+                <i class="@content.Value("reviewsBlockRating")"></i>
+            }
+        }
+    </div>
+    <div class="text">@content.Value("reviewsBlockText")</div>
+    <div class="person">
+        @{
+            var reviewsBlockImage = content.Value<MediaWithCrops>("reviewsBlockImage");
+            if (reviewsBlockImage != null)
+            {
+                <img src="@reviewsBlockImage.MediaUrl()" alt="" />
+            }
+        }
+        <div class="content">
+            <div class="name">@content.Value("reviewsBlockWriter")</div>
+            <div class="title">@content.Value("reviewsBlockWriterTitle")</div>
+        </div>
+    </div>
+</div>

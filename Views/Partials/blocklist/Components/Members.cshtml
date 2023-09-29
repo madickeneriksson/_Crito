@@ -1,0 +1,19 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models
+@{
+    var content = (ContentModels.Members)Model.Content;
+}
+
+
+    <div class="info">
+        @{
+    var membersBlockImage = content.Value<MediaWithCrops>("membersBlockImage");
+    if (membersBlockImage != null)
+    {
+            <img src="@membersBlockImage.MediaUrl()" alt="" />
+    }
+        }
+     <div class="name">@content.Value("membersBlockName")</div>
+     <div class="title">@content.Value("membersBlockTitle")</div>
+    </div>

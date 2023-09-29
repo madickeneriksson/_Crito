@@ -1,0 +1,86 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.NewsItemPage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Services;
+@using Umbraco.Cms.Core.Models.PublishedContent;
+@inject IUserService UserService;
+
+@{
+	Layout = "_LayoutWithBreadcrumb.cshtml";
+    var userService = UserService;
+    var image = Model.Value<IPublishedContent>("newsImage");
+}
+
+  <section class="article">
+        <div class="container">
+            <div class="title">@Model.Name</div>
+            <div class="label">
+                <div class="text">@Model.CreateDate.ToString("MM,dd,yyyy")</div>
+                <li></li>
+                <div class="text">@Model.Value("newsCategory")</div>
+                <li></li>
+                <div class="text">@Model.CreatorName(UserService)</div>
+            </div>
+            <div class="content">
+                <div class="left">
+                    <img src="@image.Url()" alt="">
+                    <div class="text">@Model.Value("newsContent")</div>
+                    <div class="tags">
+                        @foreach(var tag in @Model.Value<IEnumerable<string>>("newsTags"))
+                        {
+                              <a class="tag" href="#">@tag</a>
+                        }
+
+                    </div>  
+                </div>
+                <div class="right">
+                    <form>
+                    <div class="search-input">
+                        <i class="fa-regular fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Sök" maxlength="64">                      
+                    </div>
+                </form>
+                <div class="box">
+                    <div class="title" data-text="Rec">ent Posts</div>
+                    <div class="text">
+                        <div class="bold">Lorem Ipsum is simply dummy text of the printing and</div>
+                        <div class="light">Jan 14,2020</div>
+                    </div>
+                    <div class="text">
+                        <div class="bold">Lorem Ipsum is simply dummy text of the printing and</div>
+                        <div class="light">Jan 14,2020</div>
+                    </div>
+                    <div class="text">
+                        <div class="bold">Lorem Ipsum is simply dummy text of the printing and</div>
+                        <div class="light">Jan 14,2020</div>
+                    </div>
+                    <div class="text">
+                        <div class="bold">Lorem Ipsum is simply dummy text of the printing and</div>
+                        <div class="light">Jan 14,2020</div>
+                    </div>
+                </div>
+                <div class="category-box">
+                    <div class="title" data-text="Cat">egory</div>
+                    <div class="text">
+                        <div class="bold">Lorem Ipsum -  </div>
+                        <div class="light">10n post</div>
+                    </div>
+                    <div class="text">
+                        <div class="bold">Lorem Ipsum  - </div>
+                        <div class="light">10n post</div>
+                    </div>
+                    <div class="text">
+                        <div class="bold">Lorem Ipsum - </div>
+                        <div class="light">10n post</div>
+                    </div>
+                    <div class="text">
+                        <div class="bold">Lorem Ipsum -  </div>
+                        <div class="light">10n post</div>
+                    </div>
+
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     @await Html.PartialAsync("_MoreNewsDetailPage")

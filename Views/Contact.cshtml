@@ -1,0 +1,41 @@
+﻿
+@using Crito.Models;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Contact>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    Layout = "_LayoutWithBreadcrumb.cshtml";
+    ViewData["PageTitle"] = @Model.Value("pageTitle");
+	ViewData["PageDescription"] = @Model.Value("pageDescription");
+	ViewData["PageKeyWords"] = @Model.Value("pageKeyWords");
+
+    var contactForm = new ContactForm();
+}
+
+@await Html.PartialAsync("_ContactInformation")
+    <section class="contact-form">
+        <div class="container">
+            <div class="title">Leave us a message <br>for any information.</div>
+
+            @using (Html.BeginUmbracoForm("Index", "Contacts", FormMethod.Post))
+        {
+
+            <div asp-validation-summary="All"></div>
+            <div class="name form-group">
+                <label for="name"></label>
+                <input asp-for="@contactForm.Name" id="name" type="text" class="invalid" placeholder="Name" required>
+            </div>
+            <div class="email form-group">
+                <label for="email"></label>
+                <input asp-for="@contactForm.Email" id="email" type="text" class="invalid" placeholder="Email">
+            </div>
+            <div class="message form-group">
+                <label for="message"></label>
+                <textarea asp-for="@contactForm.Message" id="message" class="invalid" placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit" class="btn-theme">Send Message <i class="fa-regular fa-arrow-up-right"></i></button>
+        }
+        </div>
+    </section>
+
+@await Html.PartialAsync("_Map")

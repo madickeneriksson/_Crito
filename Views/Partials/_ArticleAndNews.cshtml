@@ -1,0 +1,84 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Web.Common.PublishedModels;
+
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.PublishedContent;
+@{
+
+	
+	var itemsPerPage = 3;
+	var pageNumber = 1;
+	
+	if (!int.TryParse(Context.Request.Query["page"], out pageNumber))
+	pageNumber = 1;
+
+                
+                	var selection = Umbraco.Content(Guid.Parse("ce810264-5c43-49f4-b7e5-399a7f472b85"))
+                    .ChildrenOfType("newsItemPage")
+                    .Where(x => x.IsVisible())
+                    .OrderByDescending(x => x.CreateDate);
+                    
+                     var totalItems = selection?.Count() ?? 0;
+                     var pagedItems = selection?.Skip((pageNumber -1) * itemsPerPage).Take(itemsPerPage);
+                   
+                }
+        <section class="news">
+            <div class="container">
+                <div class="top-content">
+                    <div class="text">
+                        <div class="red">@Model.Value("moreNewsTitle")</div>
+                        <div class="title">@Model.Value("moreNewsTitle")</div>
+                    </div>
+                    <div class="btn-container">
+                        <a class="btn-theme-white" href="@Model.Value("moreNewsButtonUrl")">@Model.Value("moreNewsButtonText") <i class="fa-regular fa-arrow-up-right"></i></a>
+                    </div>
+                </div>
+                <div class="content-image">
+
+                @if(pagedItems != null)
+                {
+                @foreach (var item in pagedItems!)
+                	{
+                        	var url = item.Url();
+                        	var date = item.CreateDate;
+                        	var image = item.Value<IPublishedContent>("newsImage");
+                            var category = item.Value("NewsCategory");
+                            var title = item.Name();
+                            var preamble = @item.Value("newsPreamble");
+        
+                        <a href="@url" class="info">
+                            <img src="@image?.Url()" alt="">
+                            <div class="small-title">@category</div>
+                            <div class="title">@title</div>
+                            <div class="text">@preamble</div>
+                            <div class="date">
+                                <div class="day">@date.ToString("dd")</div>
+                                <div class="mon">@date.ToString("MMM")</div>
+                            </div>
+                        </a>
+
+                	}
+
+                }
+            </div>
+            <ul class="pagination">
+                @if (pageNumber > 1)
+                {
+                    <li><a href="?page=@(pageNumber -1)"> <i class="fa-solid fa-chevron-left"></i> </a></li>
+                }
+                
+                @for (int i = 1; i <= Math.Ceiling((decimal)totalItems / itemsPerPage); i ++) 
+                {
+                if ( i == pageNumber)
+                {<li><a href="#" class="active">@i</a></li>} 
+                else {<li><a href="?page=@i">@i</a></li>}
+                }
+
+                   @if (pageNumber < Math.Ceiling((decimal)totalItems / itemsPerPage))
+                {
+                     <li><a href="?page=@(pageNumber + 1)"> <i class="fa-solid fa-chevron-right"></i> </a></li>
+                }
+                
+            </ul>
+        </div>
+    </section>

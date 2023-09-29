@@ -1,0 +1,30 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+<section class="members">
+    <div class="container">
+        <div class="top-content">
+            <div class="text">
+                <div class="red">@Model.Value("membersHeading")</div>
+                <div class="title">@Model.Value("membersTitle")</div>
+            </div>
+            <div class="btn-container">
+                <a class="btn-theme" href="@Model.Value("membersButtonUrl")">@Model.Value("membersButtonText") <i class="fa-regular fa-arrow-up-right"></i></a>
+            </div>
+        </div>
+        <div class="content-image">
+
+                @Html.GetBlockListHtml(Model.Members)
+        </div>
+        <ul class="pagination"> 
+            <li></li>
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        </div>
+        </div>
+    </div>
+</section>
