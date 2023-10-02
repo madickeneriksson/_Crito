@@ -22,6 +22,17 @@ namespace Crito.Migrations
                 {
                     table.PrimaryKey("PK_ContactForms", x => x.Email);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "SubscribeForms",
+                columns: table => new
+                {
+                    Email = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SubscribeForms", x => x.Email);
+                });
         }
 
         /// <inheritdoc />
@@ -29,6 +40,9 @@ namespace Crito.Migrations
         {
             migrationBuilder.DropTable(
                 name: "ContactForms");
+
+            migrationBuilder.DropTable(
+                name: "SubscribeForms");
         }
     }
 }

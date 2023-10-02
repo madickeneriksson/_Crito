@@ -1,7 +1,7 @@
 ﻿using Crito.Context;
 using Crito.Models;
 using Crito.Models.Entity;
-using Crito.Services;
+
 using Microsoft.AspNetCore.Mvc;
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Cms.Core.Logging;
@@ -26,17 +26,16 @@ namespace Crito.Controllers
         public IActionResult Index(SubscribeForm subscribeForm)
         {
             if (!ModelState.IsValid)
-                ModelState.Clear();
-            return CurrentUmbracoPage();
+            
+                return CurrentUmbracoPage();
+                var subscribeEntity = new SubscribeFormEntity
+                {
+                    Email = subscribeForm.Email
+                };
 
-            // Sparar SubscribeFormEntity i databasen
-            var subscribeEntity = new SubscribeFormEntity
-            {
-                Email = subscribeForm.Email
-            };
+                _context.SubscribeForms.Add(subscribeEntity);
+                _context.SaveChanges(); 
 
-            _context.SubscribeForms.Add(subscribeEntity);
-            _context.SaveChanges();
 
             return CurrentUmbracoPage();
         }

@@ -41,7 +41,7 @@ namespace Crito.Migrations
 
                     b.HasKey("Email");
 
-                    b.ToTable("Subscribes");
+                    b.ToTable("SubscribeForms");
                 });
 #pragma warning restore 612, 618
         }

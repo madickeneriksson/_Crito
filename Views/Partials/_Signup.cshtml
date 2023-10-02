@@ -4,7 +4,7 @@
 @using Umbraco.Cms.Web.Common.PublishedModels;
 
 @{
-    var subsribeform = new SubscribeForm();
+    var subscribeform = new SubscribeForm();
 }
 
 
@@ -13,8 +13,7 @@
         <div class="text">@Model.Value("signupTitle")</div>
         @using (Html.BeginUmbracoForm("Index", "Subscribe", FormMethod.Post))
         {
-            <div asp-validation-summary="All"></div>
-            <input asp-for="@subsribeform.Email"  type="text" placeholder="@Model.Value("signupFormText")">
+            <input asp-for="@subscribeform.Email" type="text" placeholder="@Model.Value("signupFormText")">
             <button type="submit" class="btn-theme">@Model.Value("signupButtonText") <i class="fa-regular fa-arrow-up-right"></i></button>
         }
     </div>
