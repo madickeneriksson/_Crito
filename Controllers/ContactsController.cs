@@ -28,7 +28,7 @@ namespace Crito.Controllers
             if (!ModelState.IsValid)
                 return CurrentUmbracoPage();
 
-            // Sparar ContactFormEntity i databasen
+            // save contact form to database
             var contactEntity = new ContactFormEntity
             {
                 Name = contactForm.Name,

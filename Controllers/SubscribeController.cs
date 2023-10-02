@@ -28,6 +28,7 @@ namespace Crito.Controllers
             if (!ModelState.IsValid)
             
                 return CurrentUmbracoPage();
+            //save subscribe to database
                 var subscribeEntity = new SubscribeFormEntity
                 {
                     Email = subscribeForm.Email
