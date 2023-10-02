@@ -1,5 +1,4 @@
-
-        @charset "UTF-8";
+ @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,500;0,9..40,700;1,9..40,500&family=Inter:wght@300&display=swap");
 html, body {
   color: #191919;
@@ -837,6 +836,8 @@ header .container .second-row .button .btn-theme {
   padding-bottom: 20px;
 }
 .footer .container .info .text {
+    max-width:300px;
+    padding-top:10px;
   color: #DAD9D3;
 }
 .footer .container .link-content {
@@ -847,21 +848,21 @@ header .container .second-row .button .btn-theme {
 .footer .container .link-content .links {
   padding-left: 40px;
 }
-.footer .container .link-content .links .big {
+.footer .container .link-content .links .big  {
   font-family: "DM+Sans";
   font-size: 22px;
   font-weight: 800;
   color: #F0EFE9;
   text-decoration: none;
-  padding-bottom: 40px;
+  padding-bottom: 150px;
 }
-.footer .container .link-content .links .small {
+.footer .container .link-content .links  .small  {
   display: block;
   font-family: "Inter";
   font-size: 16px;
   color: #F0EFE9;
   text-decoration: none;
-  padding-bottom: 20px;
+  padding-top: 30px;
 }
 .footer .container .lines {
   position: absolute;
