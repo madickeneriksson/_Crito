@@ -13,7 +13,7 @@
         <div class="text">@Model.Value("signupTitle")</div>
         @using (Html.BeginUmbracoForm("Index", "Subscribe", FormMethod.Post))
         {
-            <input asp-for="@subscribeform.Email" type="text" placeholder="@Model.Value("signupFormText")">
+            <input asp-for="@subscribeform.Email" type="email" placeholder="@Model.Value("signupFormText")">
             <button type="submit" class="btn-theme">@Model.Value("signupButtonText") <i class="fa-regular fa-arrow-up-right"></i></button>
         }
     </div>

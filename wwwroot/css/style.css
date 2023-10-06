@@ -813,6 +813,7 @@ header .container .second-row .button .btn-theme {
 }
 .signup .container form .btn-theme {
   padding: 15px 30px;
+  border:none;
 }
 .signup img {
   float: right;
@@ -1087,6 +1088,7 @@ header .container .second-row .button .btn-theme {
   grid-template-areas: "name" "email" "message";
 }
 .contact-form .container form .form-group input[type=text],
+.contact-form .container form .form-group input[type=email],
 .contact-form .container form .form-group textarea {
   display: block;
   width: 1000px;
@@ -1348,7 +1350,10 @@ header .container .second-row .button .btn-theme {
 }
 .news-details .container .content-image .info {
   position: relative;
-  padding: 20px;
+  padding: 20px; 
+  text-decoration: none;
+  
+  
 }
 .news-details .container .content-image .info .small-title {
   padding-top: 20px;
@@ -1363,7 +1368,7 @@ header .container .second-row .button .btn-theme {
   font-weight: 800;
   padding-top: 20px;
     color: #0E1021;
-      text-decoration: none;
+     text-decoration: none;
 }
 .news-details .container .content-image .info .text {
   padding-top: 20px;

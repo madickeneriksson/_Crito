@@ -39,13 +39,6 @@ namespace Crito.Controllers
             _context.ContactForms.Add(contactEntity);
             _context.SaveChanges();
 
-            // SKicka mejl
-          //  using var mail = new MailService("no-reaoly@crito.com", "smtp.crito.com", 465, "support@crito.com", "Bytmig123!");
-            //to sender
-          //  mail.SendAsync(contactForm.Email, "Our request was received", "Hi your request was received, we will contact you").ConfigureAwait(false);
-            // to us
-          //  mail.SendAsync("support@crito.com", $"{contactForm.Name} sent a contact request", contactForm.Message).ConfigureAwait(false);
-
             return LocalRedirect(contactForm.ReadirectUrl ?? "/");
         }
     }

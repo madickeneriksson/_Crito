@@ -5,17 +5,16 @@
         <div class="container">
             <div class="info-img">
                         @{
-                        var companyImage = Model.Value<MediaWithCrops>("companyImage");
-                        if (companyImage != null)
-                        {
-                                <img src="@companyImage.MediaUrl()" alt="" />
-                        }
-                            }        
+                            var companyImage = Model.Value<MediaWithCrops>("companyImage");
+                            if (companyImage != null)
+                            {
+                                    <img src="@companyImage.MediaUrl()" alt="" />
+                            }
+                        }        
                 <div class="box">
                     <div class="title">@Model.Value("companyInfoWriter") <span>@Model.Value("companyInfoWriterTitle")</span></div>
                     <div class="text">@Model.Value("companyInfoText")</div>
                 </div>
-
             </div>
             <div class="about">
                 <div class="red">@Model.Value("companyHeading")</div>

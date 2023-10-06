@@ -7,8 +7,7 @@
             <div class="small-title">@Model.Value("ourServiceHeading")</div>
             <div class="title">@Model.Value("ourServiceTitle")</div>
             <div class="boxes">
-
-                @Html.GetBlockListHtml(Model.OurService)
+                 @Html.GetBlockListHtml(Model.OurService)
         </div>
         <div class="button"><a class="btn-theme-white" href="@Model.Value("ourServiceButtonUrl")">@Model.Value("ourServiceButtonText") <i class="fa-regular fa-arrow-up-right"></i></a></div>
         <div class="lines"><img src="/images/lines-right.svg" alt=""></div>

@@ -9,8 +9,7 @@
             <div class="title">@Model.Value("reviewsTitle")</div>
          </div>
          <div class="box">
-
-                @Html.GetBlockListHtml(Model.Reviews)
+              @Html.GetBlockListHtml(Model.Reviews)
          </div>
          <div class="button"><a class="btn-theme-dark" href="@Model.Value("reviewsButtonUrl")">@Model.Value("reviewsButtonText") <i class="fa-regular fa-arrow-up-right"></i></a></div>
     </div>

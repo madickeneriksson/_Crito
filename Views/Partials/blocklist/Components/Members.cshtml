@@ -5,14 +5,13 @@
     var content = (ContentModels.Members)Model.Content;
 }
 
-
     <div class="info">
         @{
-    var membersBlockImage = content.Value<MediaWithCrops>("membersBlockImage");
-    if (membersBlockImage != null)
-    {
-            <img src="@membersBlockImage.MediaUrl()" alt="" />
-    }
+        var membersBlockImage = content.Value<MediaWithCrops>("membersBlockImage");
+        if (membersBlockImage != null)
+            {
+                    <img src="@membersBlockImage.MediaUrl()" alt="" />
+            }
         }
      <div class="name">@content.Value("membersBlockName")</div>
      <div class="title">@content.Value("membersBlockTitle")</div>

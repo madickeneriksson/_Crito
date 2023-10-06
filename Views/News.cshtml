@@ -5,6 +5,9 @@
 
 @{
 	Layout = "_LayoutWithBreadcrumb.cshtml";
+	ViewData["PageTitle"] = @Model.Value("pageTitle");
+	ViewData["PageDescription"] = @Model.Value("pageDescription");
+	ViewData["PageKeyWords"] = @Model.Value("pageKeyWords");
 	
 	var itemsPerPage = 9;
 	var pageNumber = 1;

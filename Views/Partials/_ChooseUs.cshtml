@@ -14,12 +14,12 @@
     </div>
     </div>
     <div class="right">
-                @{
-    var choseUsImage = Model.Value<MediaWithCrops>("choseUsImage");
-    if (choseUsImage != null)
-    {
-            <img src="@choseUsImage.MediaUrl()" alt="" />
-    }
+        @{
+            var choseUsImage = Model.Value<MediaWithCrops>("choseUsImage");
+            if (choseUsImage != null)
+            {
+                    <img src="@choseUsImage.MediaUrl()" alt="" />
+            }
         }
     </div>
 </div>

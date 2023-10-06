@@ -3,25 +3,23 @@
 
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @using Umbraco.Cms.Core.Models.PublishedContent;
-@{
-
-	
-	var itemsPerPage = 3;
-	var pageNumber = 1;
-	
-	if (!int.TryParse(Context.Request.Query["page"], out pageNumber))
-	pageNumber = 1;
-
-                
-                var selection = Umbraco.Content(Guid.Parse("ce810264-5c43-49f4-b7e5-399a7f472b85"))
-                .ChildrenOfType("newsItemPage")
-                .Where(x => x.IsVisible())
-                .OrderByDescending(x => x.CreateDate);
-                
-                var totalItems = selection?.Count() ?? 0;
-               var pagedItems = selection?.Skip((pageNumber -1) * itemsPerPage).Take(itemsPerPage);
-                   
-                }
+    @{
+    	var itemsPerPage = 3;
+    	var pageNumber = 1;
+    	
+    	if (!int.TryParse(Context.Request.Query["page"], out pageNumber))
+    	pageNumber = 1;
+    
+                    
+        var selection = Umbraco.Content(Guid.Parse("ce810264-5c43-49f4-b7e5-399a7f472b85"))
+        .ChildrenOfType("newsItemPage")
+        .Where(x => x.IsVisible())
+        .OrderByDescending(x => x.CreateDate);
+        
+        var totalItems = selection?.Count() ?? 0;
+        var pagedItems = selection?.Skip((pageNumber -1) * itemsPerPage).Take(itemsPerPage);
+                       
+    }
     <section class="news-details">
             <div class="container">
                 <div class="top-content">
@@ -56,9 +54,7 @@
                                 <div class="mon">@date.ToString("MMM")</div>
                             </div>
                         </a>
-
                 	}
-
                 }
             </div>
         <ul class="pagination"> 
