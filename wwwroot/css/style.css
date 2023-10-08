@@ -1122,7 +1122,7 @@ header .container .second-row .button .btn-theme {
 
 /* Details */
 .article {
-  margin-top: 50px;
+  padding-top: 100px;
 }
 .article .container .title {
   font-family: "DM+Sans";
